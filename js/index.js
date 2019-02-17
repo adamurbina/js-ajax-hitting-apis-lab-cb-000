@@ -27,6 +27,7 @@ function getCommits(repo) {
     req.send();
 }
 
+
 function displayCommits() {
   const commits = JSON.parse(this.responseText);
   const commitsList = `${commits.map(
