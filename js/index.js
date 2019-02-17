@@ -7,6 +7,6 @@ function getRepositories() {
   req.send();
 }
 
-function getRepositories(){
+function showRepositories(){
   console.log(this);
 }
