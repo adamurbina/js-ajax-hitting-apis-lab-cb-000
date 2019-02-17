@@ -13,7 +13,7 @@ function displayRepositories(){
     repo =>
       '<a href=' + repo.html_url +'>'+ repo.name +'</a>'
       + ' / <a href="#" data-repository="' + repo.name + '" data-username="' + repo.owner.login + '" onclick="getCommits(this)">Commits</a> / ' +
-      '<a href="#" onclick="getBranches(this)">Branches</a>'
+      '<a href="#" data-repository="' + repo.name + '" data-username="' + repo.owner.login + '"onclick="getBranches(this)">Branches</a>'
       + '</br>'
   ).join('')}`;
   document.getElementById("repositories").innerHTML = repoList;
