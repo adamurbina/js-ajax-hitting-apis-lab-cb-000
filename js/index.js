@@ -12,7 +12,7 @@ function displayRepositories(){
   const repoList = `${repos.map(
     repo =>
       '<a href=' + repo.html_url +'>'+ repo.name +'</a>'
-      + ': <a href="#" data-repo_name="' + repo.name + '" data-username="' + repo.owner.login + '" onclick="getCommits(this)">Commits</a>'
+      + ': <a href="#" data-repository="' + repo.name + '" data-username="' + repo.owner.login + '" onclick="getCommits(this)">Commits</a>'
       + '</br>'
   ).join('')}`;
   document.getElementById("repositories").innerHTML = repoList;
@@ -23,7 +23,7 @@ function getCommits(repo) {
     const username = repo.dataset.username;
     const req = new XMLHttpRequest();
     req.addEventListener('load', displayCommits);
-    req.open('GET', 'https://api.github.com/repos/' + username +'/' + repo_name + '/commits');
+    req.open('GET', 'https://api.github.com/repos/' + username +'/' + repository + '/commits');
     req.send();
 }
 
