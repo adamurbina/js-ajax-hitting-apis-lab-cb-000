@@ -12,6 +12,6 @@ function showRepositories(){
   const repoList = `${repos.map(
     repo =>
       repo.name +'<br>'
-  )}`;
-  
+  ).join('')}`;
+  document.getElementById("repositories").innerHTML = repoList;
 }
