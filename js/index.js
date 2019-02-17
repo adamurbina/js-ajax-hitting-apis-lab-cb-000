@@ -13,7 +13,7 @@ function displayRepositories(){
     repo =>
       '<a href=' + repo.html_url +'>'+ repo.name +'</a>'
       + ' / <a href="#" data-repository="' + repo.name + '" data-username="' + repo.owner.login + '" onclick="getCommits(this)">Commits</a> / ' +
-      'Branches'
+      ' / <a href="#" onclick="getBranches(this)">Branches</a> / ' +
       + '</br>'
   ).join('')}`;
   document.getElementById("repositories").innerHTML = repoList;
@@ -36,4 +36,10 @@ function displayCommits() {
     '/' + commit.author.login + '/'+ commit.commit.author['name'] +'/'+ commit.commit.message + '/<br>'
   ).join('')}`;
   document.getElementById("details").innerHTML = commitsList;
+}
+
+function getBranches() {
+  const req = new XMLHttpRequest();
+  req.addEventListener('load', displayBranches);
+  req.open('GET', 'https://api.github.com/repos/')
 }
