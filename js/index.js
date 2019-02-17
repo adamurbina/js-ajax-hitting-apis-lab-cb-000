@@ -8,5 +8,10 @@ function getRepositories() {
 }
 
 function showRepositories(){
-  console.log(this.responseText);
+  var repos = JSON.parse(this.responseText);
+  const repoList = `${repos.map(
+    repo =>
+      repo.name +'<br>'
+  )}`;
+  
 }
