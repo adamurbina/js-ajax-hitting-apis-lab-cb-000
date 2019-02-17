@@ -11,7 +11,8 @@ function showRepositories(){
   var repos = JSON.parse(this.responseText);
   const repoList = `${repos.map(
     repo =>
-      '<a href=' + repo.html_url +'>'+ repo.name +'</a><br>'
+      '<a href=' + repo.html_url +'>'+ repo.name +'</a>'
+      + ' - Get Commit' + '</br>'
   ).join('')}`;
   document.getElementById("repositories").innerHTML = repoList;
 }
