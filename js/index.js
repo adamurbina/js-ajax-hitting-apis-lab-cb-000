@@ -12,26 +12,25 @@ function showRepositories(){
   const repoList = `${repos.map(
     repo =>
       '<a href=' + repo.html_url +'>'+ repo.name +'</a>'
-      + ': <a href="#" data-repo_name="' + repo.name + '" onclick="getCommits(this)">Commits</a>'
+      + ': <a href="#" data-repo_name="' + repo.name + '" data-username=" '+ repo.owner.login + ' onclick="getCommits(this)">Commits</a>'
       + '</br>'
   ).join('')}`;
   document.getElementById("repositories").innerHTML = repoList;
 }
 
 function getCommits(repo) {
-    const name = repo.dataset.repo_name;
+    const repo_name = repo.dataset.repo_name;
     const req = new XMLHttpRequest();
     req.addEventListener('load', displayCommits);
-    req.open('GET', 'https://api.github.com/repos/'+ name + '/commits');
+    req.open('GET', 'https://api.github.com/repos/' + repo_name + '/commits');
     req.send();
 }
 
 function displayCommits() {
   const commits = JSON.parse(this.responseText);
-  const commitList = `${commits
-    .map(
+  const commitsList = `${commits.map(
     commit =>
     commit.commit.message + '<br>'
   ).join('')}`;
-  document.getElementById("details").innerHTML = commitList;
+  document.getElementById("details").innerHTML = commitsList;
 }
