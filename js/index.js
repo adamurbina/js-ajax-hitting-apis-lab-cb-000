@@ -17,3 +17,11 @@ function showRepositories(){
   ).join('')}`;
   document.getElementById("repositories").innerHTML = repoList;
 }
+
+function getCommits(repo) {
+    const name = repo.dataset.repo_name;
+    const req = new XMLHttpRequest();
+    req.addEventListener('load', showCommits);
+    req.open('GET', 'https://api.github.com/repos/'+ name + '/commits');
+    req.send();
+}
