@@ -8,5 +8,5 @@ function getRepositories() {
 }
 
 function showRepositories(){
-  console.log(this);
+  console.log(this.responseText);
 }
