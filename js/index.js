@@ -12,7 +12,8 @@ function displayRepositories(){
   const repoList = `${repos.map(
     repo =>
       '<a href=' + repo.html_url +'>'+ repo.name +'</a>'
-      + ': <a href="#" data-repository="' + repo.name + '" data-username="' + repo.owner.login + '" onclick="getCommits(this)">Commits</a>'
+      + ' / <a href="#" data-repository="' + repo.name + '" data-username="' + repo.owner.login + '" onclick="getCommits(this)">Commits</a>' +
+      'Branches'
       + '</br>'
   ).join('')}`;
   document.getElementById("repositories").innerHTML = repoList;
