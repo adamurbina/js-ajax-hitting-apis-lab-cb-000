@@ -30,7 +30,7 @@ function displayCommits() {
   var commits = JSON.parse(this.responseText);
   const commitList = `${commits.map(
     commit =>
-    commit.commit.author.name + ' - ' + commit.commit.message + '<br>'
+    commit.commit.message + '<br>'
   ).join('')}`;
   document.getElementById("details").innerHTML = commitList;
 }
