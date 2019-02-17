@@ -47,5 +47,9 @@ function getBranches(repo) {
 }
 
 function displayBranches(){
-  
+  const branches = JSON.pase(this.responseText);
+  const branchesList = `${branches.map(
+    
+  ).join('')}`;
+  document.getElementById("details").innerHTML = branchesList;
 }
